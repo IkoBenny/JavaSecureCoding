@@ -1,5 +1,7 @@
 package com.frankmoley.lil.security.data;
 
+import com.frankmoley.lil.security.util.ObsfucationUtil;
+
 public class President {
     private long id;
     private String firstName;
@@ -58,4 +60,14 @@ public class President {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
+    
+    public String toString() {
+    	final StringBuffer sb = new StringBuffer("President{");
+    	sb.append("id=").append(id);
+    	sb.append(", first name= '").append(firstName).append('\'');
+    	sb.append(", last name= '").append(lastName).append('\'');
+    	sb.append(", emailAddress='").append(ObsfucationUtil.obsfucateData(emailAddress)).append('\'');
+    	sb.append('}');
+    	return sb.toString();
+    	}
 }
